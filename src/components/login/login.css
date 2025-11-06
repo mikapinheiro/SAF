@@ -1,0 +1,186 @@
+/* src/components/login/login.css */
+
+.login-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+/* 1. OPACIDADE DO BACKGROUND (Altere o último valor, ex: 0.5 para 0.7) */
+.login-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.678); 
+  z-index: 1;
+}
+
+/* 2. DIAGONAL INVERTIDA */
+.diagonal-background {
+  position: absolute;
+  top: 0;
+  left: -20%;
+  width: 75%;
+  height: 100%;
+  background-color: #008542;
+  transform: skewX(20deg);
+  z-index: 2;
+}
+
+.logo-petrobras {
+  position: absolute;
+  top: 10px;
+  right: 70px;
+  width: 165;
+  height: 155;
+  z-index: 4;
+}
+
+.login-card {
+  position: relative;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 400px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+}
+
+.card-title {
+  color: #008542;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.new-password-title, .confirm-password-title {
+  color: #333;
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 13px;
+  background-color: #F0F0F0;
+  border: 1px solid #878787;
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: all 0.2s ease-in-out; /* Adiciona uma transição suave */
+}
+
+.forgot-password-link {
+  color: #008542;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: right;
+  display: block;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  background-color: #FCC72E;
+  color: #FFFFFF;
+  padding: 13px 25px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background-color: #FCC72E;
+}
+
+.password-rules {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 20px 0;
+  text-align: left;
+}
+
+.password-rules li {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px; /* Aumentei um pouco o espaçamento */
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease; /* Transição suave de cor */
+}
+
+/* 2. ESTILO PARA OS ÍCONES (info e check) */
+.validation-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px; /* Espaço entre o ícone e o texto */
+}
+
+/* 3. ESTILO PARA QUANDO A VALIDAÇÃO ESTÁ CORRETA (texto verde) */
+.password-rules li.valid {
+  color: #008542; /* Verde Petrobras */
+  font-weight: 500;
+}
+
+/* 5. BORDA VERDE QUANDO O CAMPO É SELECIONADO */
+.form-group input:focus {
+  outline: none; 
+  border-color: #808080; 
+}
+
+/* 4. ESTILOS PARA O ÍCONE DE VISIBILIDADE DE SENHA */
+.password-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-toggle-icon {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 20px;
+  height: auto;
+}
+
+.password-input-wrapper input {
+  padding-right: 45px; 
+}
+
+.password-mismatch-error {
+  color: #D32F2F; 
+  font-size: 13px;
+  text-align: left;
+  margin-top: 5px; 
+}
