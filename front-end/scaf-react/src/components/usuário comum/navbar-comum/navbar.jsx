@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import "./navbar.css";
 import { useNavigate } from "react-router-dom";
 
+// Note: A pasta 'assets/images' é assumida a partir da raiz do seu projeto.
 import navLogo from "../../../assets/images/navlogo.svg";
 import bellIcon from "../../../assets/images/notification.svg";
 import userIcon from "../../../assets/images/user.svg";
@@ -32,24 +33,58 @@ const Navbar = () => {
   }, []);
 
   const handleLogout = () => {
-    navigate("/");
+    localStorage.removeItem("userToken"); // Limpa o token
+    navigate("/"); // Redireciona para o login
+  };
+
+  // Função para navegar
+  const handleNavigation = (path) => {
+    setShowDropdown(false);
+    setShowNotifications(false);
+    navigate(path);
   };
 
   return (
     <div className="navbar-wrapper">
       {/* LOGO */}
-      <div className="navbar-logo-container">
+      <div
+        className="navbar-logo-container"
+        onClick={() => handleNavigation("/home")}
+      >
         <img src={navLogo} alt="Logo Petrobras" className="navbar-logo" />
       </div>
 
       {/* NAVBAR PRINCIPAL */}
       <header className="navbar-container">
+        {/* LINKS CENTRAIS DE NAVEGAÇÃO */}
         <nav className="navbar-center">
-          <a onClick={() => navigate("/dashboard")} className="nav-link">Dashboard</a>
-          <a onClick={() => navigate("/registrarfalha")} className="nav-link">Registrar Falha</a>
-          <a onClick={() => navigate("/consultar")} className="nav-link">Consultar Falhas</a>
-          <a onClick={() => navigate("/relatorios")} className="nav-link">Relatórios</a>
-          <a onClick={() => navigate("/config")} className="nav-link">Configurações</a>
+          <span onClick={() => handleNavigation("/home")} className="nav-link">
+            Dashboard
+          </span>
+          <span
+            onClick={() => handleNavigation("/registrar-falha")}
+            className="nav-link"
+          >
+            Registrar Falha
+          </span>
+          <span
+            onClick={() => handleNavigation("/consultar-falhas")}
+            className="nav-link"
+          >
+            Consultar Falhas
+          </span>
+          <span
+            onClick={() => handleNavigation("/relatorios")}
+            className="nav-link"
+          >
+            Relatórios
+          </span>
+          <span
+            onClick={() => handleNavigation("/configuracoes")}
+            className="nav-link"
+          >
+            Configurações
+          </span>
         </nav>
 
         <div className="navbar-right">
@@ -65,11 +100,17 @@ const Navbar = () => {
               }}
             />
 
-            <div className={`notification-popup ${showNotifications ? "show" : ""}`}>
+            <div
+              className={`notification-popup ${
+                showNotifications ? "show" : ""
+              }`}
+            >
               <div className="arrow-up"></div>
               <div className="notification-header">
                 <span>Notificações</span>
-                <a href="#">Todas &gt;</a>
+                <a onClick={() => handleNavigation("/configuracoes")}>
+                  Todas &gt;
+                </a>
               </div>
 
               <ul>
@@ -136,7 +177,9 @@ const Navbar = () => {
               </div>
 
               <div className="user-details">
-                <p><strong>Mikaelle Giovanna Pinheiro</strong></p>
+                <p>
+                  <strong>Mikaelle Giovanna Pinheiro</strong>
+                </p>
                 <p>Registro do empregado (RE): 789012</p>
                 <p>Cargo: Técnico de Operações</p>
                 <p>Setor de atuação: Refino – Manutenção</p>

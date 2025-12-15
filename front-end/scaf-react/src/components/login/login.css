@@ -12,15 +12,15 @@
   overflow: hidden;
 }
 
-/* 1. OPACIDADE DO BACKGROUND (Altere o último valor, ex: 0.5 para 0.7) */
+/* 1. OPACIDADE DO BACKGROUND */
 .login-container::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(255, 255, 255, 0.678); 
+  background-color: rgba(255, 255, 255, 0.678);
   z-index: 1;
 }
 
@@ -47,7 +47,7 @@
 
 .login-card {
   position: relative;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 40px;
@@ -65,7 +65,8 @@
   margin-bottom: 20px;
 }
 
-.new-password-title, .confirm-password-title {
+.new-password-title,
+.confirm-password-title {
   color: #333;
   font-size: 20px;
   margin-top: 0;
@@ -87,12 +88,12 @@
 .form-group input {
   width: 100%;
   padding: 13px;
-  background-color: #F0F0F0;
+  background-color: #f0f0f0;
   border: 1px solid #878787;
   border-radius: 10px;
   box-sizing: border-box;
   font-size: 16px;
-  transition: all 0.2s ease-in-out; /* Adiciona uma transição suave */
+  transition: all 0.2s ease-in-out;
 }
 
 .forgot-password-link {
@@ -106,9 +107,10 @@
   margin-bottom: 20px;
 }
 
-.btn-primary {
-  background-color: #FCC72E;
-  color: #FFFFFF;
+/* --- ESTILO CORRIGIDO DO BOTÃO DE ENTRAR (Amarelo, Alta Especificidade) --- */
+.login-card .btn-primary {
+  background-color: #fcc72e !important; /* Amarelo/Dourado (FORÇADO) */
+  color: #ffffff;
   padding: 13px 25px;
   border: none;
   border-radius: 10px;
@@ -119,9 +121,10 @@
   width: 100%;
 }
 
-.btn-primary:hover {
-  background-color: #FCC72E;
+.login-card .btn-primary:hover {
+  background-color: #e6b329 !important; /* Amarelo mais escuro para Hover */
 }
+/* ------------------------------------------- */
 
 .password-rules {
   list-style: none;
@@ -133,32 +136,25 @@
 .password-rules li {
   font-size: 14px;
   color: #666;
-  margin-bottom: 10px; /* Aumentei um pouco o espaçamento */
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
-  transition: color 0.3s ease; /* Transição suave de cor */
+  transition: color 0.3s ease;
 }
 
-/* 2. ESTILO PARA OS ÍCONES (info e check) */
-.validation-icon {
-  width: 16px;
-  height: 16px;
-  margin-right: 8px; /* Espaço entre o ícone e o texto */
-}
-
-/* 3. ESTILO PARA QUANDO A VALIDAÇÃO ESTÁ CORRETA (texto verde) */
+/* ESTILO PARA QUANDO A VALIDAÇÃO ESTÁ CORRETA (texto verde) */
 .password-rules li.valid {
-  color: #008542; /* Verde Petrobras */
+  color: #008542;
   font-weight: 500;
 }
 
-/* 5. BORDA VERDE QUANDO O CAMPO É SELECIONADO */
+/* BORDA VERDE QUANDO O CAMPO É SELECIONADO */
 .form-group input:focus {
-  outline: none; 
-  border-color: #808080; 
+  outline: none;
+  border-color: #808080;
 }
 
-/* 4. ESTILOS PARA O ÍCONE DE VISIBILIDADE DE SENHA */
+/* ESTILOS PARA O ÍCONE DE VISIBILIDADE DE SENHA */
 .password-input-wrapper {
   position: relative;
   width: 100%;
@@ -175,12 +171,12 @@
 }
 
 .password-input-wrapper input {
-  padding-right: 45px; 
+  padding-right: 45px;
 }
 
 .password-mismatch-error {
-  color: #D32F2F; 
+  color: #d32f2f;
   font-size: 13px;
   text-align: left;
-  margin-top: 5px; 
+  margin-top: 5px;
 }

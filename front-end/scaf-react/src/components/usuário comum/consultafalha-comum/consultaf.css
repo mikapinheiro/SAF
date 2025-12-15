@@ -1,0 +1,381 @@
+/* === CONTAINER BASE === */
+.consulta-falha-container {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.main-content {
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: visible;
+}
+
+/* === HEADER === */
+.form-header-box.consulta-header {
+  border-left: 6px solid #008542;
+  border-right: 6px solid #008542;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 20px 30px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  margin-bottom: 1px;
+  position: relative;
+}
+
+.consulta-header h1 {
+  color: #008542;
+  margin: 0 0 10px 0;
+  font-size: 26px;
+}
+
+.consulta-header p {
+  margin: 0;
+  font-size: 16px;
+  color: #000000;
+}
+
+/* === BUSCA === */
+.search-filter-section {
+  background: transparent;
+  padding: 0;
+  margin-bottom: 20px;
+  border-radius: 0;
+  box-shadow: none;
+  position: relative;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 20px;
+}
+
+.search-filter-section h3 {
+  font-size: 22px;
+  color: #008542;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 13px;
+  margin-bottom: 22px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 15px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #008542;
+}
+
+.main-search-group {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  width: 100%;
+}
+
+/* Tamanho fixo para o campo de busca */
+.main-search-group .form-group {
+  flex: 0 0 300px;
+  margin-bottom: 0;
+}
+
+/* Container dos botões Buscar/Limpar */
+.filter-actions-search {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  margin-left: auto;
+}
+
+.btn {
+  width: auto;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #008542;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #006a35;
+}
+
+.btn-grey {
+  background-color: #605e5e;
+  color: white;
+}
+
+.btn-grey:hover {
+  background-color: #5a6268;
+}
+
+/* === RESULTADOS === */
+.results-container {
+  background: transparent;
+  padding: 0;
+  margin-top: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.results-title-wrapper h2 {
+  font-size: 22px;
+  color: #008542;
+  margin: 0 0 8px 0;
+}
+
+.results-info {
+  color: #6c757d;
+  margin: 0;
+  font-size: 15px;
+}
+
+/* === AÇÕES TABELA === */
+.table-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Classe de tamanho para Baixar Relatório e Filtrar */
+.btn-action-table {
+  padding: 10px 20px !important;
+  font-size: 15px !important;
+  font-weight: 500;
+}
+
+/* === BOTÃO FILTRAR === */
+.btn-filter {
+  background: #ffffff;
+  color: #008542;
+  border: 1px solid #008542;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-filter:hover {
+  background-color: #f0f9f4;
+}
+
+.arrow-icon {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #008542;
+  margin-left: 4px;
+}
+
+/* DROPDOWN */
+.filter-dropdown {
+  position: relative;
+}
+
+.dropdown-menu-filtro {
+  position: absolute;
+  right: 0;
+  top: 48px;
+  background: #ffffff;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  width: 200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.dropdown-item-filtro {
+  padding: 12px 16px;
+  cursor: pointer;
+  color: #212529;
+  font-weight: 500;
+  font-size: 15px;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-item-filtro:hover {
+  background: #f8f9fa;
+  color: #008542;
+}
+
+/* === TABELA === */
+.falha-table-wrapper {
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #dee2e6;
+}
+
+.falha-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* AJUSTE 1: Recuo dos Títulos (th) */
+.falha-table th {
+  padding: 18px 18px 18px 22px; /* Ajustado de 25px para 22px */
+  font-size: 15px;
+  background-color: #008542;
+  color: white;
+  text-align: left;
+}
+
+/* AJUSTE 2: Recuo do Conteúdo (td), incluindo o Status */
+.falha-table td {
+  padding: 14px 16px 14px 22px; /* Ajustado de 25px para 22px */
+  border-bottom: 1px solid #dee2e6;
+  font-size: 15px;
+  color: #212529;
+  text-align: left;
+}
+
+.falha-table tbody tr {
+  background: #ffffff;
+  transition: background-color 0.2s ease;
+}
+
+.falha-table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.falha-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* STATUS */
+.status-cell {
+  padding: 5px 12px;
+  font-size: 13px;
+  border-radius: 16px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.status-em-análise {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status-aprovada {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-recusada {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.status-rascunho {
+  background: #e2e3e5;
+  color: #4f4f4f;
+}
+
+/* BOTÃO VER */
+.btn-ver {
+  background: #008542;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-ver:hover {
+  background: #006a35;
+}
+
+/* === ESTILOS DA TELA DE VAZIO (EMPTY STATE) === */
+
+.falha-table.empty-table {
+  margin-bottom: 0;
+}
+
+/* NOVO: Garante a borda inferior cinza quando a tabela está vazia */
+.falha-table-wrapper:has(.empty-table) {
+  border-bottom: 1px solid #dee2e6; /* Cor da borda da tabela */
+  border-radius: 6px 6px 0 0;
+}
+
+.empty-state-message-row {
+  background-color: #fafafa;
+  text-align: center;
+}
+
+.empty-state-message-row td {
+  padding: 32px 20px;
+  background-color: #ffffff;
+  font-size: 16px;
+  color: #6c757d;
+  font-style: italic;
+  border-bottom: none; /* Evita borda duplicada */
+  text-align: center;
+}
+
+.empty-state-footer {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  text-align: center;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.btn-register-new {
+  background: #ffffff;
+  color: #008542;
+  border: 2px solid #008542;
+  padding: 12px 24px;
+  border-radius: 0;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.btn-register-new:hover {
+  background-color: #f0f9f4;
+  color: #006a35;
+}

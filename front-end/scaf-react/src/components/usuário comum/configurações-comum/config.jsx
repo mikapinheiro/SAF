@@ -1,8 +1,8 @@
-import { useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { ThemeContext } from "../../../context/themecontext.jsx";
-import React, { useState } from "react";
-import "./config.css";
 import Navbar from "../navbar-comum/navbar.jsx";
+import "./config.css";
+
 import perfilIcon from "../../../assets/images/person.svg";
 import notificacaoIcon from "../../../assets/images/notconfig.svg";
 import preferenciasIcon from "../../../assets/images/preference.svg";
@@ -11,9 +11,21 @@ import privacidadeIcon from "../../../assets/images/priv.svg";
 const Config = () => {
   const [abaAtiva, setAbaAtiva] = useState("perfil");
   const { theme, toggleTheme } = useContext(ThemeContext);
-  
+
+  // aplica classe de tema ao body
+  useEffect(() => {
+    document.body.classList.remove("theme-light", "theme-dark");
+    document.body.classList.add(
+      theme === "dark" ? "theme-dark" : "theme-light"
+    );
+  }, [theme]);
+
   return (
-    <div className="config-container">
+    <div
+      className={`config-container ${
+        theme === "dark" ? "theme-dark" : "theme-light"
+      }`}
+    >
       <Navbar />
 
       <main className="config-content">
@@ -105,43 +117,31 @@ const Config = () => {
               <>
                 <h2>Notificações do Sistema</h2>
                 <div className="notificacoes-lista">
-                  <div className="notificacao-item">
-                    <div>
-                      <h3>Notificações Push</h3>
-                      <p>
-                        Receber notificações instantâneas no topo da tela atual
-                        quando estiver ativo.
-                      </p>
+                  {[
+                    {
+                      title: "Notificações Push",
+                      desc: "Receber notificações instantâneas quando ativo.",
+                    },
+                    {
+                      title: "Sons de Notificação",
+                      desc: "Reproduzir som ao receber notificações.",
+                    },
+                    {
+                      title: "Notificações de Lembrete",
+                      desc: "Receber lembretes sobre falhas pendentes.",
+                    },
+                  ].map((item, i) => (
+                    <div className="notificacao-item" key={i}>
+                      <div>
+                        <h3>{item.title}</h3>
+                        <p>{item.desc}</p>
+                      </div>
+                      <label className="switch">
+                        <input type="checkbox" defaultChecked />
+                        <span className="slider"></span>
+                      </label>
                     </div>
-                    <label className="switch">
-                      <input type="checkbox" defaultChecked />
-                      <span className="slider"></span>
-                    </label>
-                  </div>
-
-                  <div className="notificacao-item">
-                    <div>
-                      <h3>Sons de Notificação</h3>
-                      <p>
-                        Reproduzir som quando receber notificações no sistema.
-                      </p>
-                    </div>
-                    <label className="switch">
-                      <input type="checkbox" defaultChecked />
-                      <span className="slider"></span>
-                    </label>
-                  </div>
-
-                  <div className="notificacao-item">
-                    <div>
-                      <h3>Notificações de Lembrete</h3>
-                      <p>Receber lembretes sobre falhas pendentes.</p>
-                    </div>
-                    <label className="switch">
-                      <input type="checkbox" defaultChecked />
-                      <span className="slider"></span>
-                    </label>
-                  </div>
+                  ))}
                 </div>
               </>
             )}
@@ -150,21 +150,27 @@ const Config = () => {
               <>
                 <h2>Preferências do Sistema</h2>
 
-                {/* APARÊNCIA E TEMA */}
                 <div className="preferencias-section">
                   <h3>Aparência e Tema</h3>
-
                   <div className="tema-container">
-                    <label className="tema-opcao ativo">
-                      <input type="radio" name="tema" defaultChecked />
-                      <div className="tema-box">
+                    <label
+                      className={`tema-opcao ${
+                        theme === "light" ? "ativo" : ""
+                      }`}
+                      onClick={() => theme !== "light" && toggleTheme()}
+                    >
+                      <div className="tema-box light">
                         <h4>Tema Claro</h4>
                         <p>Interface clara e tradicional.</p>
                       </div>
                     </label>
 
-                    <label className="tema-opcao">
-                      <input type="radio" name="tema" />
+                    <label
+                      className={`tema-opcao ${
+                        theme === "dark" ? "ativo" : ""
+                      }`}
+                      onClick={() => theme !== "dark" && toggleTheme()}
+                    >
                       <div className="tema-box dark">
                         <h4>Tema Escuro</h4>
                         <p>Reduz fadiga visual.</p>
@@ -178,7 +184,7 @@ const Config = () => {
                       <p>Aumente o contraste para melhor acessibilidade.</p>
                     </div>
                     <label className="switch">
-                      <input type="checkbox" defaultChecked />
+                      <input type="checkbox" />
                       <span className="slider"></span>
                     </label>
                   </div>
@@ -186,62 +192,7 @@ const Config = () => {
                   <div className="switch-group">
                     <div>
                       <h4>Animações da Interface</h4>
-                      <p>Habilitar animações e transições suaves.</p>
-                    </div>
-                    <label className="switch">
-                      <input type="checkbox" defaultChecked />
-                      <span className="slider"></span>
-                    </label>
-                  </div>
-                </div>
-
-                {/* IDIOMA E LOCALIZAÇÃO */}
-                <div className="preferencias-section">
-                  <h3>Idioma e Localização</h3>
-
-                  <div className="form-group">
-                    <label>Idioma da Interface</label>
-                    <select>
-                      <option>🇧🇷 Português (Brasil)</option>
-                      <option>🇺🇸 English (United States)</option>
-                      <option>🇪🇸 Español (Latinoamérica)</option>
-                    </select>
-                  </div>
-
-                  <div className="form-group">
-                    <label>Fuso Horário</label>
-                    <select>
-                      <option>São Paulo (GMT-3)</option>
-                      <option>Manaus (GMT-4)</option>
-                      <option>Lisboa (GMT+1)</option>
-                    </select>
-                  </div>
-
-                  <div className="form-group">
-                    <label>Formato de Data</label>
-                    <select>
-                      <option>DD/MM/AAAA (31/12/2025)</option>
-                      <option>MM/DD/YYYY (12/31/2025)</option>
-                    </select>
-                  </div>
-
-                  <div className="form-group">
-                    <label>Formato de Hora</label>
-                    <select>
-                      <option>24h (14:30)</option>
-                      <option>12h (2:30 PM)</option>
-                    </select>
-                  </div>
-                </div>
-
-                {/* FUNCIONALIDADES */}
-                <div className="preferencias-section">
-                  <h3>Funcionalidades</h3>
-
-                  <div className="switch-group">
-                    <div>
-                      <h4>Auto-save de Rascunhos</h4>
-                      <p>Salvar automaticamente formulários em progresso.</p>
+                      <p>Habilitar transições suaves.</p>
                     </div>
                     <label className="switch">
                       <input type="checkbox" defaultChecked />
@@ -252,6 +203,15 @@ const Config = () => {
               </>
             )}
 
+            {abaAtiva === "privacidade" && (
+              <>
+                <h2>Privacidade e Segurança</h2>
+                <div className="info-box">
+                  Gerencie suas permissões, visibilidade de dados e políticas de
+                  segurança do sistema.
+                </div>
+              </>
+            )}
           </section>
         </div>
       </main>
