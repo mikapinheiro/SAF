@@ -1,0 +1,366 @@
+/* Components/usuário comum/registrarFalha-comum/registrarf.css */
+
+.registrar-falha-container {
+  background-color: #f8f9fa; /* Fundo cinza claro da página */
+  min-height: 100vh;
+}
+
+.form-content {
+  max-width: 1400px;
+  margin: 40px auto; /* Centraliza e dá espaço do navbar */
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.form-header-box {
+  border-left: 10px solid #008542;
+  padding: 20px 30px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  border: 1px solid #eee;
+  border-left-width: 6px;
+  border-right-width: 6px;
+  border-left-color: #008542;
+  border-right-color: #008542;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.form-header-box h1 {
+  color: #008542;
+  margin: 0 0 10px 0;
+  font-size: 26px;
+}
+.form-header-box p {
+  margin: 0;
+  font-size: 16px;
+  color: #000000;
+}
+
+.form-alert {
+  background-color: #e6f3ec;
+  color: #008542;
+  padding: 16px;
+  border-radius: 6px;
+  margin-bottom: 40px;
+  font-size: 15px;
+  border: 1px solid #008542;
+}
+.form-alert strong {
+  font-weight: 700;
+}
+
+.form-section {
+  margin-bottom: 30px;
+}
+.form-section h2 {
+  font-size: 22px;
+  color: #008542;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 10px;
+  margin-bottom: 24px;
+}
+.form-grid {
+  display: grid;
+  gap: 20px 24px;
+}
+.grid-col-1 {
+  grid-template-columns: 1fr;
+}
+.grid-col-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+.form-group label {
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+.form-group label span {
+  color: #dc3545;
+  margin-left: 2px;
+}
+
+/* === Inputs, Textarea e o MASKED INPUT === */
+.form-group input[type="text"],
+.form-group textarea,
+.custom-datepicker-input {
+  /* A classe do InputMask */
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 15px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-with-icon {
+  position: relative;
+}
+
+.input-with-icon .input-icon {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.input-with-icon .custom-datepicker-input {
+  padding-right: 40px;
+}
+
+/* === Estilos do Pop-up do Calendário === */
+/* (Estes estilos de 'selected' e 'header' serão sobrescritos abaixo) */
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background-color: #008542;
+  color: white;
+}
+.react-datepicker__day--selected:hover {
+  background-color: #006a35;
+}
+.react-datepicker__header {
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #aeaeae;
+}
+
+.select-wrapper {
+  position: relative;
+}
+.form-group select {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 15px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding-right: 40px;
+  cursor: pointer;
+}
+.select-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  width: 16px;
+  height: 16px;
+  background-image: url("../../../assets/images/dropdown.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px;
+  transform: translateY(-50%) rotate(0deg);
+  transition: transform 0.2s ease;
+  pointer-events: none;
+}
+.select-wrapper:focus-within::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+.form-group select {
+  color: #6c757d;
+}
+.form-group select:focus,
+.form-group select option {
+  color: #212529;
+}
+.form-group select option[disabled] {
+  color: #6c757d;
+}
+
+.form-group input[type="text"]:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.custom-datepicker-input:focus {
+  outline: none;
+  border-color: #008542;
+}
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 40px;
+  border-top: 2px solid #e9ecef;
+  padding-top: 30px;
+}
+.btn {
+  width: auto;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-primary {
+  background-color: #008542;
+  color: white;
+}
+.btn-primary:hover {
+  background-color: #006a35;
+}
+.btn-secondary {
+  background-color: #ffffff;
+  color: #008542;
+  border: 1px solid #008542;
+}
+.btn-secondary:hover {
+  background-color: #f0f9f4;
+}
+.btn-cancel,
+.btn-grey {
+  background-color: #605e5e;
+  color: white;
+}
+.btn-cancel:hover,
+.btn-grey:hover {
+  background-color: #5a6268;
+}
+.form-header-box .btn-grey {
+  padding: 10px 20px;
+  font-size: 15px;
+}
+
+.react-datepicker-popper {
+  z-index: 1000; /* Mantém o z-index alto */
+}
+
+
+/* === ITEM 2: NOVOS ESTILOS PARA O CALENDÁRIO (TEMA MODERNO) === */
+
+/* Container principal (o popup) */
+.react-datepicker {
+  font-family: "Inter", sans-serif; /* Pega a fonte do seu projeto */
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Tira a seta/triângulo feia do popup */
+.react-datepicker__triangle {
+  display: none;
+}
+
+/* Cabeçalho (onde fica "October 2023") */
+.react-datepicker__header {
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  padding-top: 15px;
+}
+
+/* Texto do mês ("October 2023") */
+.react-datepicker__current-month {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  padding-bottom: 15px;
+}
+
+/* Setas de navegação (< >) */
+.react-datepicker__navigation {
+  top: 15px;
+}
+
+/* Container dos nomes dos dias (S, M, T...) */
+.react-datepicker__day-names {
+  padding-top: 8px;
+}
+
+/* Cada nome de dia (S, M, T...) */
+.react-datepicker__day-name {
+  color: #6c757d;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+/* Cada dia (número) */
+.react-datepicker__day {
+  margin: 2px;
+  border-radius: 50%; /* Deixa todos redondos */
+  transition: background-color 0.2s ease;
+  font-weight: 500;
+}
+
+/* Dia selecionado (a bolinha verde) */
+.react-datepicker__day--selected {
+  background-color: #008542; /* Verde Petrobras */
+  color: white;
+  font-weight: 600;
+}
+.react-datepicker__day--selected:hover {
+  background-color: #006a35; /* Verde mais escuro no hover */
+}
+
+/* Dias "fora" do mês (ex: 30, 31 de Setembro) */
+.react-datepicker__day--outside-month {
+  color: #adb5bd;
+  background-color: transparent;
+}
+
+/* Dia de "hoje" (sem estar selecionado) */
+.react-datepicker__day--today {
+  background-color: #f0f9f4; /* Verde bem clarinho */
+  color: #008542;
+  font-weight: 700;
+}
+
+/* Hover em dias normais */
+.react-datepicker__day:hover {
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+.input-with-icon {
+  position: relative;
+  width: 100%;
+}
+
+.input-with-icon .custom-datepicker-input {
+  width: 100%;
+  padding: 12px 40px 12px 14px;
+  font-size: 15px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-with-icon .input-icon {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.input-with-icon .input-icon:hover {
+  opacity: 1;
+}
